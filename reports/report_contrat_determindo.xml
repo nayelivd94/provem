@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="provem.report_contrat_determindo">
+    <t t-foreach="docs" t-as="o">
+        <div class="page">
+            <br/>
+            <p style="text-align:center; font-size:12pt;"> <b>CONTRATO INDIVIDUAL DE TRABAJO POR TIEMPO DETERMINADO</b></p>
+            <span>CONTRATO DE TRABAJO POR TIEMPO DETERMINADO QUE CELEBRAN, POR UNA PARTE, ALIANZAS Y ESTRATEGIA CORPORATIVA S.A. DE C.V.  A QUIEN EN LO SUCESIVO SE LE DENOMINARÁ
+                <b>“EL PATRÓN” </b>REPRESENTADA EN ESTE ACTO POR JOSÉ MIGUEL VARGAS VARGAS, Y POR LA OTRA,<b t-field="o.employee_id.name"/>
+                , QUIEN EN LO SUCESIVO SE DENOMINARÁ <b>“EL TRABAJADOR”</b>, AL TENOR DE LAS SIGUIENTES DECLARACIONES Y CLAUSULAS:
+            </span><br/>
+            <p style="text-align:center;font-size:11pt;"><b> D E C L A R A C I O N E S</b></p>
+            <b><u>1. - DECLARA “EL PATRON”:</u></b><br/>
+            <b>1.1</b>Ser una empresa legalmente constituida conforme a las leyes de los Estados Unidos Mexicanos, mediante escritura pública número 99,245
+            de fecha 18 de noviembre de 2011, otorgada ante la fe del Licenciado Alejandro Esquivel Macedo, Notario Público número 8 del Estado de Querétaro,
+            Qro., e inscrita en el Registro Público de Comercio con el folio mercantil número 42234-1.<br/>
+            <b>1.2 </b>Que su representante legal, el <b>JOSÉ MIGUEL VARGAS VARGAS</b>, se encuentra facultado para la celebración del presente acto legal, facultades
+            que al momento de la suscripción del presente Contrato no le han sido modificadas ni revocadas personalidad que acredita mediante Testimonio Notarial número
+            99,581, otorgado ante la fe del Notario Público 8, Licenciado Alejandro Esquivel Macedo de Querétaro Qro., <br/>
+            <b>1.3</b> Tener su domicilio en Antonio de Garay No. 101 Col Los Fundadores C.P. 76117 Querétaro, Qro., mismo que señala para todos los fines y efectos legales que produzca este contrato.<br/>
+            <b>1.4 </b>Que cuenta con Registro Federal de Contribuyentes AEC-111118-SG6<br/>
+            <b>1.5</b> Que su objeto social consiste en: La prestación de servicios profesionales, independientes especializados, siniestro de mano de obra en general, así como también el reclutamiento,
+            capacitación y entrenamiento a personal para la prestación de los servicios que le sean requeridos a la sociedad, así como la realización de todo tipo de gestiones, tramites, obtención de permisos,
+            solicitudes, pago de derechos, y designación de representantes para promover cualesquiera otras activadas similares, licitas, anexas o conexas que crean prudente realizar la administración de la sociedad.<br/>
+            <b>1.6</b> Declara “EL PATRON” que, para desarrollar su objeto social, requiere de la colaboración de trabajadores, es por ello que celebra el presente contrato con “EL TRABAJADOR”<br/>
+            <b><u>2. - DECLARA “EL TRABAJADOR”:</u></b><br/>
+            <b>2.1.</b> Contar con los siguientes datos personales:<br/>
+            a) NOMBRE: <b t-field ="o.employee_id.name"/><br/>
+            b) NACIONALIDAD:  <b t-field ="o.employee_id.x_nationality"/><br/>
+            c) FECHA NACIMIENTO: <b t-field ="o.employee_id.birthday"/><br/>
+            d) EDAD:  <b t-field ="o.employee_id.edad"/><br/>
+            e) R.F.C.:  <b t-field ="o.employee_id.identification_id"/><br/>
+            f) CURP:  <b t-field ="o.employee_id.passport_id"/><br/>
+            g) DOMICILIO:  <b t-field ="o.employee_id.address_home_id.street"/>
+            <b t-if="o.employee_id.address_home_id.l10n_mx_street3"> No.Ext. <b t-field="o.employee_id.address_home_id.l10n_mx_street3"/></b>
+            <b t-if="o.employee_id.address_home_id.l10n_mx_street4"> No.Int.<b t-field="o.employee_id.address_home_id.l10n_mx_street4"/></b>
+            <b t-field="o.employee_id.address_home_id.city"/>,
+            <b t-field="o.employee_id.address_home_id.state_id.name"/>
+            <b t-field="o.employee_id.address_home_id.country_id.name"/>
+            <b>CP:</b><b t-field="o.employee_id.address_home_id.zip"/>
+             <br/>
+            h) IMSS:<b t-field="o.employee_id.x_nss"/><br/>
+            i) SEXO:<b t-field="o.employee_id.gender"/><br/>
+            j) ESTADO CIVIL: <b t-field="o.employee_id.marital"/><br/>
+            <b>2.2.</b> Que bajo protesta de decir verdad que tiene la capacidad y conocimientos necesarios para desempeñar el trabajo estipulado en las cláusulas primera y segunda.<br/>
+            <b>2.3.</b> Que está de acuerdo en celebrar el presente Contrato Individual de Trabajo por Tiempo Determinado.<br/>
+            EXPUESTO LO ANTERIOR, CONVIENEN EN CELEBRAR EL PRESENTE CONTRATO AL TENOR DE LAS SIGUIENTES:<br/>
+            <p style="text-align:center;font-size:11pt;"><b>C L A U S U L A S</b> </p>
+            <b>PRIMERA</b>.- Declara la empresa que tiene necesidad de contratar en forma transitoria los servicios del trabajador,
+            por lo que se celebran libremente por las partes este contrato individual de trabajo por tiempo determinado,
+            por un periodo que comprende de <span t-field="o.date_start"/> al  <span t-field="o.date_end"/> en el cual el patrón ha requerido
+            de la prestación de un trabajo personal-subordinado mismo que, según la declaración segunda, el trabajador se encuentra en
+            aptitud de realizar, por lo que al término del contrato, concluirán las obligaciones de las partes sin responsabilidad para las mismas.<br/>
+            <b>SEGUNDA</b>. - TÉRMINO. Declara la empresa que tiene necesidad de contratar en forma transitoria los servicios del trabajador, por lo
+            que se celebran libremente por las partes por un tiempo determinado de 90 días eventuales, por lo que, al término del contrato, concluirán
+            las obligaciones de las partes sin responsabilidad para las mismas.<br/>
+            <b>TERCERA</b>. -  Declara el trabajador que conoce esta necesidad especifica de la empresa, que está en aptitud
+            de prestar sus servicios subordinados por un tiempo determinado de 90 días eventuales, en la inteligencia de
+            que una vez concluido el plazo de este contrato, terminara la relación de trabajo sin ninguna responsabilidad
+            para la empresa, por tratarse de un trabajo EVENTUAL.<br/>
+            <b>CUARTA</b>.- El trabajador está de acuerdo y se compromete  a realizar el trabajo  <span t-field="o.job_id.name"/>
+            , con eficiencia, profesionalismo, dedicación y honorabilidad, todo ello en concordancia con las políticas
+            generales de la empresa, el trabajador queda obligado a cumplir leal y correctamente con todos deberes que
+            le imponga este instrumento o aquellos que se deriven de las funciones y cargo, debiendo ejecutar las
+            instrucciones que le confieran sus superiores gerente general o director general de la empresa.<br/>
+            <b>QUINTA</b>. - El trabajador se obliga a prestar los servicios a que se refiere el presente contrato
+            en el domicilio del patrón, así como en los lugares en que, por la naturaleza del trabajo objeto del
+            presente contrato, se requieran sus servicios.<br/>
+            <b>SEXTA</b>. - El trabajador prestara al patrón sus servicios dentro de una jornada de trabajo de un
+            máximo de 48 horas a la semana repartidas en atención al artículo 59 de la ley federal del trabajo.<br/>
+            <b>SÉPTIMA</b>. -  La jornada laboral referida en la cláusula anterior podrá ser extendida en caso de
+            que el trabajo así lo requiera. La jornada extraordinaria de trabajo en la prestación de los servicios objeto
+            de este contrato, se cubrirá en los términos de ley, siempre y cuando se encuentre expresamente autorizado por
+            escrito por el patrón. Por lo que dicha autorización por escrito será el único documento que servirá para cobrar
+            tiempo extra. En caso de no contarse con la autorización de referencia, el tiempo laborado en exceso No será pagado
+            al trabajador.<br/>
+            <b>OCTAVA</b>. - Por cada seis días de prestación de servicios el trabajador disfrutará de un día de descanso con
+            goce de salario.<br/>
+            <b>NOVENA</b>. - El Trabajador percibirá como contraprestación por los servicios personales subordinados que se
+            señalan en la cláusula cuarta, un sueldo diario de $<span t-field="o.wage"/> (<span t-field="o.amount_to_text"/>)que le será acumulado y
+            liquidado por periodo semanal vencido pagados los días viernes vía transferencia electrónica de fondos
+            en la cuenta que se indique en el anexo (Datos para pago Nomina).<br/>
+            <b>DÉCIMA</b>. - El patrón queda facultado para descontar del salario del trabajador el importe del
+            impuesto sobre productos de trabajo, cuotas del Seguro Social y en general todas aquellas que establece
+            la Ley Federal del Trabajo y demás leyes aplicables.<br/>
+            <b>DÉCIMA PRIMERA</b>. - El trabajador disfrutará de las vacaciones en proporción al tiempo laborado,
+            de acuerdo a lo dispuesto por los artículos 76 y 77 de la Ley Federal del Trabajo.<br/>
+            <b>DÉCIMA SEGUNDA</b>. -  Se faculta expresamente al patrón para que determine el periodo de vacaciones
+            que deberá disfrutar el trabajador de acuerdo con las necesidades de la Empresa y en términos de ley.
+            El Trabajador por concepto de prima vacacional, recibirá un 25% sobre los salarios que le corresponden
+            durante el periodo de vacaciones.<br/>
+            <b>DÉCIMA TERCERA</b>. - El Trabajador percibirá por concepto de aguinaldo el equivalente a 15 días de
+            salario, pagaderos en la forma y términos previstos por la Ley Federal del Trabajo en su artículo 87.
+            Si el trabajador no hubiera cumplido el año de servicios, tendrá derecho a que se le pague la parte
+            proporcional del mismo, conforme al tiempo que hubiera trabajado. Adicional a lo anterior el profesionista
+            tendrá derecho a vales de despensa que es un 10% del sueldo efectivamente pagado mensualmente y a un fondo
+            de ahorro del 5.5% sobre el sueldo efectivamente pagado.<br/>
+            <b>DÉCIMA CUARTA</b>. - El trabajador se obliga a asistir puntualmente a los cursos, sesiones de grupo
+            y demás actividades que forman parte del proceso de capacitación y adiestramiento, e igualmente a atender
+            las indicaciones relativas a ellos y presentar los exámenes de evaluaciones y aptitud que le sean
+            requeridos, lo anterior en términos de los Artículos 153-A y 153-B de la Ley Federal del Trabajo.<br/>
+            <b>DÉCIMA QUINTA</b>. - El trabajador no podrá divulgar información confidencial a la cual tenga acceso
+            con motivo de sus funciones, sin autorización del empleador, excepto en aquellos casos en que los exijan
+            las leyes tributarias o de seguridad social. En especial no podrá revelar a terceros lo siguiente:
+            a) los términos de este contrato; b) Información de cualquier naturaleza, relacionada con el empleador
+            o cualquiera de sus sucursales y sus respectivos clientes, incluyendo sin limitación alguna , las
+            políticas de la empresa, las operaciones sociales, técnicas, cuentas y personal del empleador;
+            c) Información y datos usados por el empleador para la conducción de sus negocios o de un tercero
+            y que el empleador este obligado a tratar como confidencial. La obligación de la reserva del trabajador
+            será permanente salvo que el empleador haga pública dicha información.<br/>
+            <b>DÉCIMA SEXTA</b>. - El trabajador se obliga a no desarrollar actividades comprendidas en el giro del
+            empleador. En especial, no podrá producir ni comercializar los mismos productos/o servicios que el
+            empleador, ni crear empresas o participar como socio o miembro del directorio de empresas dedicadas que
+            tengan un giro similar al del empleador. La controversia a esta prohibición producirá el término del
+            contrato sin derecho a indemnización alguna.<br/>
+            <b>DÉCIMA SÉPTIMA</b>. - PREVISIÓN SOCIAL. El trabajador gozara de todas las prestaciones en materia de
+            previsión social. Tanto el patrón como el trabajador, estarán sujetos a la Ley del Seguro Social vigente
+            y por lo mismo, el patrón queda relevado de todas las responsabilidades que por riesgos de trabajo le
+            impone la Ley Federal del Trabajo.<br/>
+            <b>DÉCIMA NOVENA</b>. - El patrón reconoce al trabajador una antigüedad a partir del
+            <span t-field="o.date_start"/>.
+            <b>VIGÉSIMA</b>. - El presente contrato podrá suspenderse o rescindirse por cualquiera de las
+            partes, en los casos a que se refieren los artículos 42, 47 y 51 de la Ley Federal del Trabajo.
+            Leído que fue por ambas partes este contrato y firmado, e impuestos todos de su contenido y
+            sabedores de las obligaciones que contraen, lo suscriben por duplicado en<span t-field="o.x_localidad"/> .
+            Al día <span t-field="o.x_fecha_ingreso"/>.<br/><br/><br/>
+            <table style=" border:0px solid white; width:100%;color:black;">
+               <tr>
+                  <td style="width:40%;">
+                       <span style="text-align:center;padding-left:15px;margin-left:15px">  “EL PATRÓN”</span>
+                  </td>
+                  <td style=" width:20%;">
+
+                  </td>
+                   <td style=" width:40%;">
+                       <span style="text-align:center;padding-left:15px;margin-left:15px">  “EL TRABAJADOR”</span>
+                  </td>
+               </tr>
+                <tr>
+                  <td style="width:40%; height:20px;">
+                  </td>
+                  <td style=" width:20%; height:20px;">
+
+                  </td>
+                   <td style=" width:40%; height:20px;">
+                  </td>
+               </tr>
+                <tr>
+                  <td style="width:40%;border-top:1px solid black;">
+                       <span style="text-align:center;padding-left:15px;margin-left:15px">JOSÉ MIGUEL VARGAS VARGAS  </span>
+                  </td>
+                  <td style=" width:20%;">
+
+                  </td>
+                   <td style=" width:40%;border-top:1px solid black;">
+                       <span style="padding-left:15px;margin-left:15px" t-field="o.employee_id.name"/>
+                  </td>
+               </tr>
+            </table>
+
+
+
+        </div>
+    </t>
+</template>
+
+        <report
+            string="Contrato  Determinado"
+            id="provem.contrat_determinado"
+            model="hr.contract"
+            report_type="qweb-pdf"
+            name="provem.report_contrat_determindo"
+            file="provem.report_contrat_determindo"
+            attachment_use="True"
+            paperformat="provem.paperformat_reportesprovem"
+        />
+
+
+</odoo>

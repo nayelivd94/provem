@@ -1,0 +1,27 @@
+<openerp>
+  <data>
+  <record id="view_hremployee_form_inherit" model="ir.ui.view">
+            <field name="name">view.hremployee.form.add.text.field</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page/group/group/field[@name='work_phone']" position="after">
+                    <field name="edad"/>
+                </xpath>
+
+            </field>
+    </record>
+      <record id="view_hrcontract_form_inherit" model="ir.ui.view">
+            <field name="name">view.hrcontract.form.add.text.field</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page/group/group/field[@name='wage']" position="after">
+                    <field name="amount_to_text"/>
+                </xpath>
+
+            </field>
+    </record>
+
+  </data>
+</openerp>
