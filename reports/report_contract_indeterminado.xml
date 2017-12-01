@@ -36,8 +36,8 @@
             e) R.F.C.:  <b t-field ="o.employee_id.identification_id"/><br/>
             f) CURP:  <b t-field ="o.employee_id.passport_id"/><br/>
             g) DOMICILIO:  <b t-field ="o.employee_id.address_home_id.street"/>
-           <b t-if="o.employee_id.address_home_id.l10n_mx_street3"> No.Ext. <b t-field="o.employee_id.address_home_id.l10n_mx_street3"/></b>
-            <b t-if="o.employee_id.address_home_id.l10n_mx_street4"> No.Int.<b t-field="o.employee_id.address_home_id.l10n_mx_street4"/></b>
+           <!-- <b t-if="o.employee_id.address_home_id.l10n_mx_street3"> No.Ext. <b t-field="o.employee_id.address_home_id.l10n_mx_street3"/></b>
+            <b t-if="o.employee_id.address_home_id.l10n_mx_street4"> No.Int.<b t-field="o.employee_id.address_home_id.l10n_mx_street4"/></b>-->
             <b t-field="o.employee_id.address_home_id.city"/>,
             <b t-field="o.employee_id.address_home_id.state_id.name"/>
             <b t-field="o.employee_id.address_home_id.country_id.name"/>
