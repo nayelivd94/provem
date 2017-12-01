@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_contracts">
+        <t t-call="web.html_container">
+            <div class="page">
+
+              <style type="text/css">
+                thead {color:black;background:#847a8b}
+                tbody {color:black}
+                tfoot {color:black}
+             </style>
+             <t t-set="i" t-value="1"/>
+
+
+
+                <t t-if="not o and doc">
+                    <t t-set="o" t-value="doc"/>
+                </t>
+                <t t-if="o and 'company_id' in o">
+                    <t t-set="company" t-value="o.company_id"></t>
+                </t>
+                <t t-if="not o or not 'company_id' in o">
+                    <t t-set="company" t-value="res_company"></t>
+                </t>
+                <div style="float:left" t-if="i==1">
+                    <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="max-height: 80px;"/>
+                </div>
+                <br/>  <br/>  
+                <b style="font-size:18pt; text-align:center;">Reporte de Contrato de Vencimiento</b> <br/>  <br/>                <b style="font-size:18pt; text-align:center;">Reporte de Contrato de Vencimiento</b> <br/>
+
+                   <table align="center"  style="width:100%"  border="1px solid black" cellpadding="0" cellspacing="0">
+                         <tr style="black;background:gray; color:white;">
+                             <td>Nombre</td>
+                             <td>Localidad</td>
+                             <td>Fecha Inicio</td>
+                             <td>Fecha Fin</td>
+                         </tr>
+                         <tr t-foreach="docs" t-as="o" >
+
+                             <td style="border-bottom: 1px solid black"><span t-field="o.employee_id.name"/></td>
+                             <td style="border-bottom: 1px solid black"><span t-field="o.x_localidad"/></td>
+                             <td style="border-bottom: 1px solid black"><span t-field="o.date_start"/></td>
+                             <td style="border-bottom: 1px solid black"><span t-field="o.date_end"/></td>
+
+                         </tr>
+                    </table>
+
+
+
+            </div>
+         </t>
+    </template>
+
+    <report
+        id="action_report_contracts"
+        string="Reporte de Contrato de Vencimiento"
+        model="hr.contract"
+        report_type="qweb-pdf"
+        name="provem.report_contracts"
+        file="provem.report_contracts"
+        paperformat="provem.paperformat_reportesprovem"
+
+    />
+
+</odoo>

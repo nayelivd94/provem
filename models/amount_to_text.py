@@ -51,7 +51,7 @@ class amount_to_text:
         strDecimales = str(round(nNumero % 1, 2)).replace('0.', '')
         strDecimales += "0"*max_digits
         strDecimales = strDecimales[0:max_digits]
-        return long(strDecimales)
+        return int(strDecimales)
 
     def amount_to_text(self, nNumero, lFemenino=False):
         """
@@ -66,7 +66,7 @@ class amount_to_text:
         """
         # Nos aseguramos del tipo de <nNumero>
         # se podria adaptar para usar otros tipos (pe: float)
-        nNumero = long(nNumero)
+        nNumero = int(nNumero)
         if nNumero < 0:
             cRes = "menos "+self._amount_to_text(-nNumero, lFemenino)
         elif nNumero == 0:
@@ -89,7 +89,7 @@ class amount_to_text:
         """
 
         # Localizar los billones
-        prim, resto = divmod(n, 10L**12)
+        prim, resto = divmod(n, 10**12)
         if prim != 0:
             if prim == 1:
                 cRes = "un billon"
@@ -170,12 +170,11 @@ def get_amount_to_text(self, amount, currency=""):
     @params lang  : Language to used for the text converted
     @params currency : Name of currency used in amount
     """
-    if str(currency).upper() in ('MXP', 'MXN', 'PESOS', 'PESOS MEXICANOS'):
+    if currency.upper() in ('MXP', 'MXN', 'PESOS', 'PESOS MEXICANOS'):
         sufijo = 'M. N.'
         currency = 'PESOS'
     else:
-        sufijo = 'U.S.D.'
-        currency = 'DOLARES AMERICANOS'
+        sufijo = 'M. E.'
     # return amount_to_text(amount, lang, currency)
     amount_text = amount_to_text().amount_to_text_cheque(amount, currency, sufijo)
     amount_text = amount_text and amount_text.upper() or ''
@@ -192,4 +191,4 @@ if __name__ == "__main__":
     # print amount_to_text().amount_to_text(5001)
     letra = amount_to_text().amount_to_text_cheque(1500.25, 'pesos', 'M. N.')
     letra = amount_to_text().amount_to_text(1500.25)
-    print letra.upper()
+    print(letra.upper())

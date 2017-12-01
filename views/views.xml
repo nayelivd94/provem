@@ -7,7 +7,10 @@
             <field name="arch" type="xml">
                 <xpath expr="//notebook/page/group/group/field[@name='work_phone']" position="after">
                     <field name="edad"/>
+                </xpath><xpath expr="//notebook/page[@name='personal_information']/group/group/field[@name='identification_id']" position="after">
+                    <field name="x_nss"/>
                 </xpath>
+
 
             </field>
     </record>
@@ -16,8 +19,12 @@
             <field name="model">hr.contract</field>
             <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//notebook/page/group/group/field[@name='wage']" position="after">
+                <xpath expr="//notebook/page[@name='information']/group/group/field[@name='advantages']" position="after">
+                    <field name="period_salary"/>
                     <field name="amount_to_text"/>
+                </xpath>
+                <xpath expr="//notebook/page[@name='other']/group/group/field[@name='trial_date_end']" position="after">
+                    <field name="x_localidad"/>
                 </xpath>
 
             </field>

@@ -28,6 +28,7 @@
         'reports/layout.xml',
         'reports/report_contrat_determindo.xml',
         'reports/report_contract_indeterminado.xml',
+    'reports/report_contrats.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-<template id="provem.report_contrat_determindo">
-    <t t-foreach="docs" t-as="o">
+<template id="report_contractdeterminate_document">
+    <t t-call="web.external_layout">
+        <t t-set="o" t-value="o" />
         <div class="page">
-            <br/>
+
             <p style="text-align:center; font-size:12pt;"> <b>CONTRATO INDIVIDUAL DE TRABAJO POR TIEMPO DETERMINADO</b></p>
             <span>CONTRATO DE TRABAJO POR TIEMPO DETERMINADO QUE CELEBRAN, POR UNA PARTE, ALIANZAS Y ESTRATEGIA CORPORATIVA S.A. DE C.V.  A QUIEN EN LO SUCESIVO SE LE DENOMINARÁ
                 <b>“EL PATRÓN” </b>REPRESENTADA EN ESTE ACTO POR JOSÉ MIGUEL VARGAS VARGAS, Y POR LA OTRA,<b t-field="o.employee_id.name"/>
@@ -26,7 +27,7 @@
             <b><u>2. - DECLARA “EL TRABAJADOR”:</u></b><br/>
             <b>2.1.</b> Contar con los siguientes datos personales:<br/>
             a) NOMBRE: <b t-field ="o.employee_id.name"/><br/>
-            b) NACIONALIDAD:  <b t-field ="o.employee_id.x_nationality"/><br/>
+            b) NACIONALIDAD:  <b t-field ="o.employee_id.country_id.name"/><br/>
             c) FECHA NACIMIENTO: <b t-field ="o.employee_id.birthday"/><br/>
             d) EDAD:  <b t-field ="o.employee_id.edad"/><br/>
             e) R.F.C.:  <b t-field ="o.employee_id.identification_id"/><br/>
@@ -78,7 +79,7 @@
             goce de salario.<br/>
             <b>NOVENA</b>. - El Trabajador percibirá como contraprestación por los servicios personales subordinados que se
             señalan en la cláusula cuarta, un sueldo diario de $<span t-field="o.wage"/> (<span t-field="o.amount_to_text"/>)que le será acumulado y
-            liquidado por periodo semanal vencido pagados los días viernes vía transferencia electrónica de fondos
+            liquidado por periodo <span t-field="o.period_salary"/> (vía transferencia electrónica de fondos
             en la cuenta que se indique en el anexo (Datos para pago Nomina).<br/>
             <b>DÉCIMA</b>. - El patrón queda facultado para descontar del salario del trabajador el importe del
             impuesto sobre productos de trabajo, cuotas del Seguro Social y en general todas aquellas que establece
@@ -123,7 +124,7 @@
             partes, en los casos a que se refieren los artículos 42, 47 y 51 de la Ley Federal del Trabajo.
             Leído que fue por ambas partes este contrato y firmado, e impuestos todos de su contenido y
             sabedores de las obligaciones que contraen, lo suscriben por duplicado en<span t-field="o.x_localidad"/> .
-            Al día <span t-field="o.x_fecha_ingreso"/>.<br/><br/><br/>
+            Al día <span t-field="o.date_start" t-field-options='{"format": "d MMMM y"}'/>.<br/><br/><br/>
             <table style=" border:0px solid white; width:100%;color:black;">
                <tr>
                   <td style="width:40%;">
@@ -157,22 +158,27 @@
                   </td>
                </tr>
             </table>
-
-
-
         </div>
+    </t>
+</template>
+
+
+<template id="report_contrat_determindo">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="provem.report_contractdeterminate_document"/>
+        </t>
     </t>
 </template>
 
         <report
             string="Contrato  Determinado"
-            id="provem.contrat_determinado"
+            id="contrats_determinado"
             model="hr.contract"
             report_type="qweb-pdf"
             name="provem.report_contrat_determindo"
             file="provem.report_contrat_determindo"
-            attachment_use="True"
-            paperformat="provem.paperformat_reportesprovem"
+
         />
 
 
