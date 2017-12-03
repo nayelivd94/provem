@@ -40,3 +40,12 @@ class hrcontract(models.Model):
                                  help='Amount of the invoice in letter', store=True)
     x_localidad = fields.Char("Localidad")
     period_salary = fields.Char("Periodo Salarial")
+class res_partner(models.Model):
+    _inherit = 'res.partner'
+    l10n_mx_edi_payment_method_id = fields.Many2one('l10n_mx_edi.payment.method', string='Metodo de Pago')
+    l10n_mx_edi_usage = fields.Selection([
+            ('out_invoice','Customer Invoice'),
+            ('in_invoice','Vendor Bill'),
+            ('out_refund','Customer Credit Note'),
+            ('in_refund','Vendor Credit Note'),
+        ], string='Metodo de Pago')
