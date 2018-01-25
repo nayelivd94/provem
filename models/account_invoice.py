@@ -37,8 +37,8 @@ class AccountInvoice(models.Model):
             fal = False
             if not attachment_id:
                 continue
-            if self.l10n_mx_edi_cfdi_name is False:
-                inv.write({'l10n_mx_edi_cfdi_name': self.name_xml})
+            if inv.l10n_mx_edi_cfdi_name is False:
+                inv.write({'l10n_mx_edi_cfdi_name': inv.name_xml})
             # At this moment, the attachment contains the file size in its 'datas' field because
             # to save some memory, the attachment will store its data on the physical disk.
             # To avoid this problem, we read the 'datas' directly on the disk.
@@ -53,5 +53,5 @@ class AccountInvoice(models.Model):
             inv.l10n_mx_edi_cfdi_supplier_rfc = tree.Emisor.get('rfc')
             inv.l10n_mx_edi_cfdi_customer_rfc = tree.Receptor.get('rfc')
             certificate = tree.get('noCertificado', tree.get('NoCertificado'))
-            inv.l10n_mx_edi_cfdi_certificate_id = self.env['l10n_mx_edi.certificate'].sudo().search(
+            inv.l10n_mx_edi_cfdi_certificate_id = inv.env['l10n_mx_edi.certificate'].sudo().search(
                 [('serial_number', '=', certificate)], limit=1)
