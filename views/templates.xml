@@ -13,5 +13,6 @@
 
             </field>
     </record>
+        <menuitem id="menu_quants" name="Evaluación de Inventario v10" parent="stock.menu_warehouse_report" sequence="120" action="stock.quantsact"/>
     </data>
 </openerp>

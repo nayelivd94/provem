@@ -1,18 +1,7 @@
 import base64
-from itertools import groupby
-import re
-import logging
-from datetime import datetime
-from io import BytesIO
-
-from lxml import etree
-from lxml.objectify import fromstring
-from suds.client import Client
 
 from odoo import _, api, fields, models, tools
-from odoo.tools.xml_utils import _check_with_xsd
-from odoo.tools import DEFAULT_SERVER_TIME_FORMAT
-from odoo.exceptions import UserError
+
 import logging
 from . import amount_to_text
 _logger = logging.getLogger(__name__)
