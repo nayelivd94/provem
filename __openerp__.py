@@ -25,6 +25,7 @@
         # 'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+'wizard/stock_quantity_filter.xml',
         'reports/layout.xml',
         'reports/report_contrat_determindo.xml',
         'reports/report_contract_indeterminado.xml',

@@ -22,6 +22,7 @@ class AccountInvoice(models.Model):
         '''Fill the invoice fields from the cfdi values.
         '''
         for inv in self:
+            #inv2=inv.l10n_mx_edi_get_xml_etree()
             attachment_id = inv.l10n_mx_edi_retrieve_last_attachment()
             fal = False
             if not attachment_id:
