@@ -28,7 +28,8 @@ class StockQuantFilter(models.TransientModel):
                 'view_mode': 'tree,form',
                 'name': _('Valoracion de inventario v10'),
                 'res_model': 'stock.quant',
-                'context': dict(self.env.context, to_date=self.date),
+                #"'context': dict(self.env.context, to_date=self.date),
+                'context':{'search_default_internal_loc': 1, 'search_default_locationgroup':1},
                 'domain':  [('create_date', '>=',  self.date)],
             }
             return action
