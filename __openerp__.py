@@ -26,6 +26,7 @@
         'views/views.xml',
         'views/templates.xml',
         'views/stock_quant.xml',
+'views/product_valuation.xml',
         'wizard/stock_quantity_filter.xml',
         'reports/layout.xml',
         'reports/report_contrat_determindo.xml',

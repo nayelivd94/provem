@@ -11,7 +11,7 @@ class StockQuant(models.Model):
     _inherit ='stock.quant'
 
     @api.one
-    @api.depends('standard_price')
-    def _compute_standardprice(self):
-        self.standard_price = self.product_id.standard_price
-    standard_price= fields.Float(string="Costo", compute="_compute_standardprice", store=True)
+    @api.depends('stock_value')
+    def _compute_stock_value(self):
+        self.stock_value = self.product_id.stock_value
+    stock_value= fields.Float(string="Costo", compute="_compute_stock_value", store=True)
